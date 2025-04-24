@@ -14,7 +14,7 @@
         "test",
         "--",  // This runs the "test" script from package.json
         "--tags",
-        "@positive"
+        "@negative"
       ],
       "skipFiles": [
         "<node_internals>/**"
@@ -24,7 +24,8 @@
       ],
       "console": "integratedTerminal",  // Use the integrated terminal for output
       "env": {
-        "NODE_ENV": "development"
+        "NODE_ENV": "development",
+        "BASE_URL": "https://parabank.parasoft.com/parabank/index.htm"
       },
       "sourceMaps": true,  // Enable source maps if you're using TypeScript or need to map minified code
       "trace": true  // Enable tracing to get additional logs
