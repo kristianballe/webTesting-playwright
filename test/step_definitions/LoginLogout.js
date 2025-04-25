@@ -7,6 +7,10 @@ Given('the user go to BugBank app', async function () {
     // await this.page.waitForTimeout(5000);
 });
 
+Given('the user go to Swag labs', async function () {
+    await this.page.goto('https://www.saucedemo.com/');
+});
+
 When('the user enters credentials', async function () {
     const emailField = 'input[type="email"]:visible';
     const passwordField = 'input[type="password"]:visible';
@@ -14,6 +18,18 @@ When('the user enters credentials', async function () {
     await this.page.locator(passwordField).first().type('test1234');
     // await this.page.pause();
     // await this.page.waitForTimeout(5000);
+})
+
+When('the user enters credentials in Swag labs', async function() {
+    const userNameField = 'input[id="user-name"]';
+    const passwordField = 'input[id="password"]';
+    await this.page.locator(userNameField).type('standard_user');
+    await this.page.locator(passwordField).type('secret_sauce');
+})
+
+When('the user click the login button', async function () {
+    const loginBtn = 'input[type="submit"]';
+    await this.page.locator(loginBtn).click();
 })
 
 When('the user click the access button', async function () {
@@ -48,3 +64,12 @@ Then('the app should pop up a menu indicates invalid message', async function ()
     const textContent = await invalidMessage.textContent();
     expect(textContent).to.contain('verifique suas');
 });
+
+Then('the app proceeds to inventory page', async function () {
+    const label = 'span[class="title"]';
+    const labelLocatorContent = await this.page.locator(label).textContent();
+    expect(labelLocatorContent).to.contain('Products');
+    
+    const currentURL = this.page.url();
+    expect(currentURL).to.contain('/inventory');
+})

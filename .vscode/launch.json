@@ -14,7 +14,7 @@
         "test",
         "--",  // This runs the "test" script from package.json
         "--tags",
-        "@negative"
+        "@positive"
       ],
       "skipFiles": [
         "<node_internals>/**"
