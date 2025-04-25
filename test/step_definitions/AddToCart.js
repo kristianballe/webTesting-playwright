@@ -22,4 +22,3 @@ Then('the app should add an item to the cart', async function () {
     const newItem = parseInt(await this.page.locator('span.shopping_cart_badge').textContent(), 10) || 0;
     expect(newItem).to.have.equal(currentItem + 1);
 });
-

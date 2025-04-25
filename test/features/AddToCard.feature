@@ -1,6 +1,6 @@
 Feature: Add to Cart
 
-  @positive
+  @positive_pass
   Scenario: User Login to Swag Labs
     Given the user go to Swag labs
     When the user enters credentials in Swag labs
