@@ -1,6 +1,6 @@
 Feature: Upload a File
 
-  @positive
+  @positive_pass
   Scenario: Upload a file
     Given the user go to herokuapp
     When the user chooses a file
